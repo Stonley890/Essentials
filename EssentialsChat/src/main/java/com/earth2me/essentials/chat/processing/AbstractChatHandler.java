@@ -218,7 +218,7 @@ public abstract class AbstractChatHandler {
 
         // Strip local chat prefix to preserve API behaviour
         final String localPrefix = AdventureUtil.miniToLegacy(tlLiteral("chatTypeLocal"));
-        String baseFormat = event.getFormat();
+        String baseFormat = AdventureUtil.legacyToMini(event.getFormat());
         if (event.getFormat().startsWith(localPrefix)) {
             baseFormat = baseFormat.substring(localPrefix.length());
         }
@@ -227,8 +227,10 @@ public abstract class AbstractChatHandler {
         server.getPluginManager().callEvent(spyEvent);
 
         if (!spyEvent.isCancelled()) {
+            final String legacyString = AdventureUtil.miniToLegacy(String.format(spyEvent.getFormat(), AdventureUtil.legacyToMini(user.getDisplayName()), AdventureUtil.escapeTags(spyEvent.getMessage())));
+
             for (final Player onlinePlayer : spyEvent.getRecipients()) {
-                onlinePlayer.sendMessage(String.format(spyEvent.getFormat(), user.getDisplayName(), spyEvent.getMessage()));
+                onlinePlayer.sendMessage(legacyString);
             }
         }
     }
