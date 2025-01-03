@@ -1,6 +1,8 @@
-This is a fork of EssentialsX that removes some commands that conflict with vanilla Minecraft commands.
+This is a fork of EssentialsX with various changes for the Wings of Fire: The New World Minecraft server.
 
-Removed:
+# Commands
+
+Some commands that conflict with vanilla Minecraft commands have been removed:
 
 - ban
 - banip
@@ -13,6 +15,15 @@ Removed:
 - kill
 - tp
 - weather
+
+# Region Flags
+
+The following region flags are added:
+
+- [ ] `ess-teleport-enter` - whether the region can be teleported into.
+- [ ] `ess-teleport-within` - whether the region allows teleporting while inside.
+- [ ] `ess-teleport-exit` - whether the region can be teleported out of.
+- [ ] `ess-set-home` - whether a home can be set in the region.
 
 ---
 
